@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "470626979339",
+    "project_id": "texno-bozor",
+    "storage_bucket": "texno-bozor.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:470626979339:android:c52c04af4f6e9b2d75410e",
+        "android_client_info": {
+          "package_name": "com.push.firebase.notification"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "470626979339-dn1ne41vdl07c4cfjvf1eombl851sipq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCPrMyA2uki2C-Pne4gIgYX09DM38yDdhI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "470626979339-dn1ne41vdl07c4cfjvf1eombl851sipq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:470626979339:android:25c97a2617d3cff975410e",
+        "android_client_info": {
+          "package_name": "uz.texno.bozor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "470626979339-dn1ne41vdl07c4cfjvf1eombl851sipq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCPrMyA2uki2C-Pne4gIgYX09DM38yDdhI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "470626979339-dn1ne41vdl07c4cfjvf1eombl851sipq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
