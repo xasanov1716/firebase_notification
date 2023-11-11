@@ -1,15 +1,31 @@
 
+
+
 class NewsModel {
   String title;
-  String description;
   String image;
-
+  String description;
 
   NewsModel({
-    required this.title,required this.description,required this.image
+    required this.title,  required this.description,required this.image
   });
 
-  // Convert the Product object to a Map
+
+  NewsModel copyWith({
+    String? title,
+    String? ntitle,
+    String? body,
+    String? description,
+    String? image,
+  }) {
+    return NewsModel(
+      title: title ?? this.title,
+      image: image ?? this.image,
+      description: description ?? this.description,
+    );
+  }
+
+
   Map<String, dynamic> toJson() {
     return {
       'title': title,
@@ -20,9 +36,7 @@ class NewsModel {
 
   static NewsModel fromJson(Map<String, dynamic> json) {
     return NewsModel(
-      title: json["title"],
-      description: json["description"],
-      image: json["image"],
+      title: json["title"], description: json['description'], image: json['image']
     );
   }
 }

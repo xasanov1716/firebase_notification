@@ -29,7 +29,7 @@ class AuthProvider with ChangeNotifier {
     String email = emailController.text;
     String password = passwordController.text;
     showLoading(context: context);
-    UniversalData universalData =
+    UniversalReponse universalData =
         await firebaseServices.signUpUser(email: email, password: password);
     if (context.mounted) {
       hideLoading(dialogContext: context);
@@ -52,7 +52,7 @@ class AuthProvider with ChangeNotifier {
     String email = emailController.text;
     String password = passwordController.text;
     showLoading(context: context);
-    UniversalData universalData =
+    UniversalReponse universalData =
         await firebaseServices.loginUser(email: email, password: password);
     if (context.mounted) {
       hideLoading(dialogContext: context);
@@ -71,7 +71,7 @@ class AuthProvider with ChangeNotifier {
 
   Future<void> logOutUser(BuildContext context) async {
     showLoading(context: context);
-    UniversalData universalData = await firebaseServices.logOutUser();
+    UniversalReponse universalData = await firebaseServices.logOutUser();
     if (context.mounted) {
       hideLoading(dialogContext: context);
     }
@@ -91,7 +91,7 @@ class AuthProvider with ChangeNotifier {
 
   Future<void> signInWithGoogle(BuildContext context) async {
     showLoading(context: context);
-    UniversalData universalData = await firebaseServices.signInWithGoogle();
+    UniversalReponse universalData = await firebaseServices.signInWithGoogle();
 
     if (context.mounted) {
       hideLoading(dialogContext: context);

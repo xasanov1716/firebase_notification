@@ -12,29 +12,34 @@ class SingleDetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        backgroundColor: Colors.grey,
+      ),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(18.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Hero(
-                tag: 'tag$index',
-                child: CachedNetworkImage(
-                  imageUrl: newsModel.image,
-                  width: 300,
-                  height: 300,
-                  placeholder: (context, url) =>
-                  const CircularProgressIndicator(),
-                  errorWidget: (context, url, error) => const Icon(Icons.error),
+              ClipRRect(
+                borderRadius: BorderRadius.circular(24),
+                child: Hero(
+                  tag: 'tag$index',
+                  child: CachedNetworkImage(
+                    imageUrl: newsModel.image,
+                    width: 300,
+                    height: 300,
+                    placeholder: (context, url) =>
+                    const CircularProgressIndicator(),
+                    errorWidget: (context, url, error) => const Icon(Icons.error),
+                  ),
                 ),
               ),
-              SizedBox(height: 15,),
-              Text(newsModel.title,style: TextStyle(fontSize: 32),),
-              SizedBox(height: 15,),
-              Text(newsModel.description,style: TextStyle(fontSize: 18),),
-              SizedBox(height: 50,)
+            const  SizedBox(height: 15,),
+              Text(newsModel.title,style: const TextStyle(fontSize: 32),),
+              const SizedBox(height: 15,),
+              Text(newsModel.description,style: const TextStyle(fontSize: 18),),
+              const SizedBox(height: 50,)
             ],
           ),
         ),

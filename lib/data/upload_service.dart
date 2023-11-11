@@ -1,24 +1,24 @@
 import 'dart:io';
-
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:texno_bozor/data/models/universal_data.dart';
+import 'models/universal_data.dart';
 
 class FileUploader {
-
-  static Future<UniversalData> imageUploader(XFile xFile) async {
+  static Future<UniversalReponse> imageUploader(XFile xFile) async {
     String downloadUrl = "";
     try {
       final storageRef = FirebaseStorage.instance.ref();
-      var imageRef = storageRef.child("images/profileImages/${xFile.name}");
+      var imageRef = storageRef.child("images/profileImages/$xFile");
       await imageRef.putFile(File(xFile.path));
       downloadUrl = await imageRef.getDownloadURL();
 
-      return UniversalData(data: downloadUrl);
+      return UniversalReponse(data: downloadUrl);
     } catch (error) {
-      return UniversalData(error: error.toString());
+      return UniversalReponse(error: error.toString());
     }
   }
+
+
 
 
 
@@ -28,7 +28,6 @@ class FileUploader {
     var imageRef = storageRef.child("files/pdf/$fileName");
     await imageRef.putFile(File(file.path));
     downloadUrl = await imageRef.getDownloadURL();
-    print("FILE DOWNLOAD URL:$downloadUrl");
     return downloadUrl;
   }
 }

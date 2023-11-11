@@ -3,7 +3,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:texno_bozor/data/models/universal_data.dart';
 
 class AuthService {
-  Future<UniversalData> signUpUser({
+  Future<UniversalReponse> signUpUser({
     required String email,
     required String password,
   }) async {
@@ -13,15 +13,15 @@ class AuthService {
         email: email,
         password: password,
       );
-      return UniversalData(data: userCredential);
+      return UniversalReponse(data: userCredential);
     } on FirebaseAuthException catch (e) {
-      return UniversalData(error: e.code);
+      return UniversalReponse(error: e.code);
     } catch (error) {
-      return UniversalData(error: error.toString());
+      return UniversalReponse(error: error.toString());
     }
   }
 
-  Future<UniversalData> loginUser({
+  Future<UniversalReponse> loginUser({
     required String email,
     required String password,
   }) async {
@@ -31,26 +31,26 @@ class AuthService {
         email: email,
         password: password,
       );
-      return UniversalData(data: userCredential);
+      return UniversalReponse(data: userCredential);
     } on FirebaseAuthException catch (e) {
-      return UniversalData(error: e.code);
+      return UniversalReponse(error: e.code);
     } catch (error) {
-      return UniversalData(error: error.toString());
+      return UniversalReponse(error: error.toString());
     }
   }
 
-  Future<UniversalData> logOutUser() async {
+  Future<UniversalReponse> logOutUser() async {
     try {
       await FirebaseAuth.instance.signOut();
-      return UniversalData(data: "User Logged Out");
+      return UniversalReponse(data: "User Logged Out");
     } on FirebaseAuthException catch (e) {
-      return UniversalData(error: e.code);
+      return UniversalReponse(error: e.code);
     } catch (error) {
-      return UniversalData(error: error.toString());
+      return UniversalReponse(error: error.toString());
     }
   }
 
-  Future<UniversalData> signInWithGoogle() async {
+  Future<UniversalReponse> signInWithGoogle() async {
     // Trigger the authentication flow
     final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
 
@@ -65,11 +65,11 @@ class AuthService {
     );
     try {
       UserCredential userCredential = await FirebaseAuth.instance.signInWithCredential(credential);
-      return UniversalData(data: userCredential);
+      return UniversalReponse(data: userCredential);
     } on FirebaseAuthException catch (e) {
-      return UniversalData(error: e.code);
+      return UniversalReponse(error: e.code);
     } catch (error) {
-      return UniversalData(error: error.toString());
+      return UniversalReponse(error: error.toString());
     }
   }
 }

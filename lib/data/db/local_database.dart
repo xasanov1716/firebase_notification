@@ -33,7 +33,6 @@ class LocalDatabase {
   Future _createDB(Database db, int version) async {
     await db.execute('''
       CREATE TABLE news(
-        id INTEGER PRIMARY KEY AUTOINCREMENT
         title TEXT NOT NULL,
         description TEXT NOT NULL,
         image TEXT NOT NULL
@@ -61,7 +60,7 @@ class LocalDatabase {
   static Future<void> delete() async {
     final db = await getInstance.database;
     await db.delete(
-        'products'
+        'news'
     );
   }
 
